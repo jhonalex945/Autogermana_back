@@ -4,10 +4,10 @@ using Seguridad.Api.Models;
 
 namespace Seguridad.Services.EventHandlers
 {
-    public class VehiculoEventHandler: INotificationHandler<UsuarioCreateCommand>
+    public class UsuarioEventHandler: INotificationHandler<UsuarioCreateCommand>
     {
         private readonly ApplicationDBContext _dBContext;
-        public VehiculoEventHandler(ApplicationDBContext dBContext) 
+        public UsuarioEventHandler(ApplicationDBContext dBContext) 
         { 
             _dBContext = dBContext;
         }

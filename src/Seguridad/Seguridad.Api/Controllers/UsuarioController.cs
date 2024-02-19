@@ -39,5 +39,23 @@ namespace Seguridad.Api.Controllers
             await _mediator.Publish(usuarioCreateCommand);
             return Ok();
         }
+
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login(UsuarioLoginCommand usuarioLoginCommand)
+        {
+            if(ModelState.IsValid)
+            {
+                var result = await _mediator.Send(usuarioLoginCommand);
+
+                if (!result.Success)
+                {
+                    return BadRequest(result.Message);
+                }
+
+                return Ok(result);
+            }
+
+            return BadRequest("Error de datos obligatorios.");
+        }
     }
 }
